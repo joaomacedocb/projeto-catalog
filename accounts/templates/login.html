@@ -1,10 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    <table>
-        {{ login_form.as_p }}
-    </table>
-    <input type="submit" value="Entrar">
-</form>
+<div class="form-screen">
+    <div class="form-item-register">
+        <form method="post">
+            {% csrf_token %}
+            <h2>Entrar</h2>
+            <p>Informe abaixo o seu usuário e senha de acesso.</p>
+
+            {% if login_form.non_field_errors %}
+                <div class="error">
+                    {{ login_form.non_field_errors }}
+                </div>
+            {% endif %}
+            
+            <div class="form-group">
+                {{ login_form.username.errors }}
+                <label for="username">Digite o usuário:</label>
+                {{ login_form.username }}
+            </div>
+            <div class="form-group">
+                {{ login_form.password.errors }}
+                <label for="password">Digite a sua senha:</label>
+                {{ login_form.password }}
+            </div>
+            <div class="spacer"></div>
+            <input class="button-register" type="submit" value="Entrar">
+        </form>
+    </div>
+</div>
 {% endblock %}

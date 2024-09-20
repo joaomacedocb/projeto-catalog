@@ -14,14 +14,18 @@ def register_view(request):
 
 def login_view(request):
     if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
-        user = authenticate(request, username = username, password = password)
-        if user is not None:
-            login(request, user)
-            return redirect('cars_list')
+        login_form = AuthenticationForm(request, data=request.POST)
+        if login_form.is_valid():
+            username = request.POST["username"]
+            password = request.POST["password"]
+            user = authenticate(request, username = username, password = password)
+            if user is not None:
+                login(request, user)
+                return redirect('cars_list')
+            else:
+                login_form.add_error(None, "Usuário ou senha incorretos.")
         else:
-            login_form = AuthenticationForm()
+            pass
     else:
         login_form = AuthenticationForm()
     return render(request, 'login.html', {'login_form': login_form})
