@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Detalhes do item. Cód.: {{ object.id }}</h1>
+</div>
+  <div class="card-item">
+      <img src="{{ object.photo.url }}" alt="{{ object.model }} - {{ object.brand }}">
+      
+      <section class="item-details">
+        <div class="item-header">
+            <h1>{{ object.brand }} {{ object.model }}</h1>
+            <h4>
+                R$ {{ object.value }}
+            </h4>
+        </div>
+
+        <div class="description-item">
+          <p>
+            <span class="material-icons">build</span> 
+            <strong>Ano de fabricação:</strong> {{ object.factoryYear }}
+          </p>
+          <p>
+            <span class="material-icons">calendar_today</span> 
+            <strong>Ano do modelo:</strong> {{ object.modelYear }}
+          </p>
+          <p>
+            <span class="material-icons">directions_car</span> 
+            <strong>Placa:</strong> {{ object.plate }}
+          </p>
+        </div>
+      </section>
+  </div>
+{% endblock %}

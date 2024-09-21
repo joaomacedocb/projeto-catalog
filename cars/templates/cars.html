@@ -24,9 +24,7 @@
         <p>Ano: {{ car.modelYear }}</p>
         <p>Valor: R$ {{ car.value }}</p>
         <div class="hub-acoes">
-            <button class="button-item"
-                onclick="openModal('{{ car.nome }}', '{{ car.brand }}', '{{ car.modelYear }}', '{{ car.value }}')">Mais
-                detalhes</button>
+            <a href="{% url 'item_detail' car.pk %}"><button class="button-item">Mais detalhes</button></a>
             <button class="button-share"
                 onclick="openModal('{{ car.nome }}', '{{ car.brand }}', '{{ car.modelYear }}', '{{ car.value }}')">Compartilhar</button>
         </div>

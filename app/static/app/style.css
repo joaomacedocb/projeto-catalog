@@ -316,4 +316,93 @@ h1 {
 
 .spacer {
     margin: 2rem 0;
-}  
+}
+
+/* Estilo dos detalhes do item */
+
+.card-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    padding: 20px;
+    text-align: left;
+    margin: 0.5rem auto 7.8rem auto;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+
+.card-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-item img {
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.item-header h1, .item-header h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.item-header h1 {
+    font-size: 2rem;
+    color: black;
+    text-align: start;
+    margin-bottom: 5px;
+}
+
+.item-header h4 {
+    font-size: 1.8rem;
+    color: green;
+    display: flex;
+    align-items: start;
+}
+
+.item-header .material-icons {
+    margin-right: 10px;
+    color: green;
+}
+
+.description-item p {
+    color: #4d4d4d;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.description-item .material-icons {
+    margin-right: 8px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .card-item {
+        flex-direction: column;
+    }
+
+    .card-item img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .item-details {
+        width: 100%;
+    }
+}
+
+.page-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

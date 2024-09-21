@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from cars.models import Car
 from cars.forms import CarModelForm
 from django.views import View
+from django.views.generic import DetailView
 
 class CarsView(View):
     def get(self, request):
@@ -28,3 +29,7 @@ class NewCarView(View):
             new_car_form.save()
             return redirect('cars_list')
         return render(request, 'new_car.html', {'new_car_form': new_car_form})
+    
+class ItemDetailView(DetailView):
+    model = Car
+    template_name = 'item_detail.html'
