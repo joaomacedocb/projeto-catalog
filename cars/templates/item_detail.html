@@ -29,6 +29,17 @@
             <strong>Placa:</strong> {{ object.plate }}
           </p>
         </div>
+        <div class="actions-details">
+            <a href="#" class="btn-back-secondary">
+                <span class="material-icons">arrow_back</span> Voltar
+            </a>                       
+            <a href="{% url 'item_update' pk=object.pk %}" class="btn-edit">
+                <span class="material-icons">edit</span> Editar
+            </a>
+            <a href="#" class="btn-delete">
+                <span class="material-icons">delete</span> Deletar
+            </a>                        
+        </div>
       </section>
   </div>
 {% endblock %}

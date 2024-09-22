@@ -305,6 +305,10 @@ h1 {
     margin-bottom: 0.8rem;
 }
 
+.form-group .custom-input {
+    background-color: #333;
+}
+
 .logo-login {
     background-color: #9B111E;
     padding: 1.2rem;
@@ -386,6 +390,72 @@ h1 {
     color: #333;
 }
 
+.btn-edit {
+    display: inline-flex;
+    align-items: center;
+    background-color: #9B111E;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit .material-icons {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.btn-edit:hover {
+    background-color: #840e1a;
+}
+
+.btn-delete {
+    display: inline-flex;
+    align-items: center;
+    background-color: #9B111E;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-delete .material-icons {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.btn-delete:hover {
+    background-color: #840e1a;
+}
+
+.btn-back-secondary {
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    color: #9B111E;
+    border: 1px solid #9B111E;
+    padding: 9px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-back-secondary .material-icons {
+    margin-right: 8px;
+    font-size: 20px;
+    color: #9B111E;
+}
+
+.btn-back-secondary:hover {
+    background-color: #dedede;
+}
+
+
 @media (max-width: 768px) {
     .card-item {
         flex-direction: column;
@@ -405,4 +475,22 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+/* Estilo da edicao de itens */
+.edit-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.back-button {
+    margin-top: 0.4rem;
+    text-decoration: none;
+    border: #9B111E 1px solid;
+    color: #9B111E;
+    padding: 0.5rem 0;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 16px;
 }
