@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-screen">
+    <h1>Atualizar item: Cód.: {{ object.id }}</h1>
+    <div class="form-item">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{ form.as_p }}
+            </table>
+            <div class="edit-options">
+                <input type="submit" value="Salvar alterações" class="button-register">
+                <a href="{% url 'cars_list' %}" class="back-button">Cancelar edição</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
