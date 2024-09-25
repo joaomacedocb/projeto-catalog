@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-screen">
+    <h1>Excluir item: Cód.: {{ object.id }}</h1>
+    <div class="form-item">
+        <form method="post">
+            {% csrf_token %}
+            <h3>Tem certeza que deseja excluir o item {{ object.brand }}  {{ object.model }} - {{ object.plate }}?</h3>
+            <div class="edit-options">
+                <input type="submit" value="Excluir item" class="button-register">
+                <a href="{% url 'item_detail' car.pk %}" class="back-button">Cancelar exclusão</a>
+            </div>
+        </form>
+    </div>
+    <div class="spacer"></div>
+</div>
+{% endblock %}

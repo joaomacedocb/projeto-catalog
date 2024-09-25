@@ -1,4 +1,4 @@
-body {
+html, body {
     display: flex;
     flex-direction: column;
     font-family: 'Nunito', sans-serif;
@@ -6,6 +6,12 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+}
+
+#content-wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
