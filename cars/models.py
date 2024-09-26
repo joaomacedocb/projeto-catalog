@@ -19,3 +19,15 @@ class Car(models.Model):
 
     def __str__(self):
         return self.model
+    
+class ItemInventory(models.Model):
+    id = models.AutoField(primary_key=True)
+    items_count = models.IntegerField()
+    items_value = models.FloatField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'{self.items_count} - {self.items_value}'
