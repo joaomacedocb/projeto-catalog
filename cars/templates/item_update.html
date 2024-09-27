@@ -6,7 +6,9 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
-                {{ form.as_p }}
+
+                {{ form.as_table }}
+
             </table>
             <div class="edit-options">
                 <input type="submit" value="Salvar alterações" class="button-register">

@@ -29,6 +29,12 @@
                     <span class="material-icons">directions_car</span>
                     <strong>Placa:</strong> {{ object.plate }}
                 </p>
+                {% if object.bio %}
+                <p>
+                    <span class="material-icons">description</span>
+                    <strong>Descrição:</strong> {{ object.bio }}
+                </p>
+                {% endif %}
             </div>
 
             <div class="actions-details">

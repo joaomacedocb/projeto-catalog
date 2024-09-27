@@ -10,6 +10,7 @@ class CarForm(forms.Form):
     plate = forms.CharField(max_length=7, label='Placa')
     value = forms.FloatField(label='Preço')
     photo = forms.ImageField(label='Foto')
+    bio = forms.TimeField(label='Descrição')
 
     def save(self):
         car = Car(
@@ -20,6 +21,7 @@ class CarForm(forms.Form):
             plate = self.cleaned_data['plate'],
             value = self.cleaned_data['value'],
             photo = self.cleaned_data['photo'],
+            bio = self.cleaned_data['bio'],
         )
         car.save()
         return car
@@ -27,7 +29,7 @@ class CarForm(forms.Form):
 class CarModelForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ['model', 'brand', 'factoryYear', 'modelYear', 'plate', 'value', 'photo']
+        fields = ['model', 'brand', 'factoryYear', 'modelYear', 'plate', 'value', 'photo','bio']
         labels = {
             'model': 'Modelo',
             'brand': 'Marca',
@@ -36,6 +38,7 @@ class CarModelForm(forms.ModelForm):
             'plate': 'Placa',
             'value': 'Valor',
             'photo': 'Foto',
+            'bio': 'Descrição',
         }   
 
     def clean_factoryYear(self):
