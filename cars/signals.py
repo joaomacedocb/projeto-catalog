@@ -1,19 +1,19 @@
-from django.db.models.signals import post_save, post_delete, pre_save, pre_delete
+from django.db.models.signals import post_save, post_delete
+from django.db.models import Sum
 from django.dispatch import receiver
 
-from cars.models import Car
-
-@receiver(pre_save, sender=Car)
-def item_pre_save(sender, instance, **kwargs):
-    print('## PRE-SAVE ##')
+from cars.models import Car, ItemInventory
 
 @receiver(post_save, sender=Car)
 def item_post_save(sender, instance, **kwargs):
-    print('## POST SAVE ##')
-
-@receiver(pre_delete, sender=Car)
-def item_pre_delete(sender, instance, **kwargs):
-    print('## PRE-DELETE ##')
+    items_count = Car.objects.all().count()
+    items_value = Car.objects.all().aggregate(
+        total_value = Sum('value')
+    )['total_value']
+    ItemInventory.objects.create(
+        items_count = items_count,
+        items_value = items_value
+    )
 
 @receiver(post_delete, sender=Car)
 def item_post_delete(sender, instance, **kwargs):
