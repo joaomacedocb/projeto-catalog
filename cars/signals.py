@@ -4,8 +4,7 @@ from django.dispatch import receiver
 
 from cars.models import Car, ItemInventory
 
-@receiver(post_save, sender=Car)
-def item_post_save(sender, instance, **kwargs):
+def itemInventoryUpdate():
     items_count = Car.objects.all().count()
     items_value = Car.objects.all().aggregate(
         total_value = Sum('value')
@@ -15,6 +14,11 @@ def item_post_save(sender, instance, **kwargs):
         items_value = items_value
     )
 
+
+@receiver(post_save, sender=Car)
+def item_post_save(sender, instance, **kwargs):
+    itemInventoryUpdate()
+
 @receiver(post_delete, sender=Car)
 def item_post_delete(sender, instance, **kwargs):
-    print('## POST DELETE ##')
+    itemInventoryUpdate()
