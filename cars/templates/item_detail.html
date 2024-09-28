@@ -6,7 +6,12 @@
         <h1>Detalhes do item. Cód.: {{ object.id }}</h1>
     </div>
     <div class="card-item">
-        <img src="{{ object.photo.url }}" alt="{{ object.model }} - {{ object.brand }}">
+        
+        {% if object.photo %}
+            <img src="{{ object.photo.url }}" alt="{{ object.model }} - {{ object.brand }}">
+        {% else %}
+            <img src="/media/placeholder.svg" alt="Foto placeholder">
+        {% endif %}
 
         <section class="item-details">
             <div class="item-header">
@@ -19,20 +24,20 @@
             <div class="description-item">
                 <p>
                     <span class="material-icons">build</span>
-                    <strong>Ano de fabricação:</strong> {{ object.factoryYear }}
+                    <strong>Ano de fabricação: </strong> {{ object.factoryYear }}
                 </p>
                 <p>
                     <span class="material-icons">calendar_today</span>
-                    <strong>Ano do modelo:</strong> {{ object.modelYear }}
+                    <strong>Ano do modelo: </strong> {{ object.modelYear }}
                 </p>
                 <p>
                     <span class="material-icons">directions_car</span>
-                    <strong>Placa:</strong> {{ object.plate }}
+                    <strong>Placa: </strong> {{ object.plate }}
                 </p>
                 {% if object.bio %}
                 <p>
                     <span class="material-icons">description</span>
-                    <strong>Descrição:</strong> {{ object.bio }}
+                    <strong>Descrição: </strong> {{ object.bio }}
                 </p>
                 {% endif %}
             </div>

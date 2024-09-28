@@ -17,7 +17,11 @@
     {% if cars %}
     {% for car in cars %}
     <div class="moto-item">
-        <img src="{{ car.photo.url }}" alt="{{ car.nome }}">
+        {% if car.photo %}
+            <img src="{{ car.photo.url }}" alt="{{ car.nome }}">
+        {% else %}
+            <img src="/media/placeholder.svg" alt="Foto placeholder">
+        {% endif %}
         <h2>{{ car.nome }}</h2>
         <p>Marca: {{ car.brand }}</p>
         <p>Modelo: {{ car.model }}</p>
